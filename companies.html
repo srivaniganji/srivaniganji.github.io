@@ -229,73 +229,6 @@
             /* cursor: none; */
             /* background: rgb(27, 27, 27); */
         }
-
-        .cursor {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(22, 211, 63, 0.822);
-            border-radius: 100%;
-            position: absolute;
-            transition-duration: 200ms;
-            transition-timing-function: ease-out;
-            animation: cursorAnim .5s infinite alternate;
-            pointer-events: visible;
-            z-index: 9999;
-        }
-
-        .cursor::after {
-            content: "";
-            width: 20px;
-            height: 20px;
-            position: absolute;
-            border: 20px solid rgb(64, 13, 80);
-            border-radius: 50%;
-            opacity: .5;
-            top: 0px;
-            left: 0px;
-
-            animation: cursorAnim2 .5s infinite alternate;
-        }
-
-        @keyframes cursorAnim {
-            from {
-                transform: scale(1);
-            }
-
-            to {
-                transform: scale(.7);
-            }
-        }
-
-        @keyframes cursorAnim2 {
-            from {
-                transform: scale(1);
-            }
-
-            to {
-                transform: scale(.4);
-            }
-        }
-
-        @keyframes cursorAnim3 {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(3);
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 0;
-            }
-        }
-
-        .expand {
-            animation: cursorAnim3 .5s forwards;
-            border: 1px solid red;
-        }
     </style>
 
 </head>
@@ -315,26 +248,26 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="navbar-text" href="main.php">HOME <span class="sr-only">(current)</span></a>
+                    <a class="navbar-text" href="index.html">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-text" href="userabout.php">ABOUT</a>
+                    <a class="navbar-text" href="about.html">ABOUT</a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-text" href="downloadpdf.php">COMPANIES</a>
+                    <a class="navbar-text" href="companies.html">COMPANIES <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-text" href="view.php">PLACED STUDENTS</a>
+                    <a class="navbar-text" href="view.html">PLACED STUDENTS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-text" href="placed.php">PLACED?</a>
+                    <a class="navbar-text" href="placed.html">PLACED?</a>
                 </li>
                 <li class="nav-item">
                     <a class="navbar-text" href="#Contact">CONTACT</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0 ml-auto">
-                <button class="logout" type="submit"><a href="logout.php"
+                <button class="logout" type="submit"><a href="login.html"
                         style="text-decoration: none;">LOGOUT</a></button>
             </form>
         </div>
@@ -354,85 +287,100 @@
             </p>
             <h1 class="student">COMPANIES</h1>
         </center>
-        <!-- <input type="text" id="searchInput" placeholder="Enter company Name" onkeyup="searchStudent()" class="student_name"> -->
-        <!-- <button onclick="clearSearch()" class="btn">Clear Search</button> -->
-        <!-- <br><br> -->
         <center>
-            <table id="studentTable">
-                <thead>
-                    <tr class="title">
+
+            <table border="1" style="margin: auto; width: 90%; border-collapse: collapse;">
+                <thead style="background-color: #7b0000; color: white;">
+                    <tr>
                         <th>S.No</th>
                         <th>Company Name</th>
                         <th>Job Description</th>
-                        <!-- <th>Details</th>-->
-
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Student data will be inserted here -->
-                    <?php
-            // Display the uploaded files and download links
-            if ($result->num_rows > 0) 
-            {
-                $s = 0;
-
-                while ($row = $result->fetch_assoc()) 
-                {   
-                    
-                    $s++;
-
-                    $file_path = "uploads/" . $row['job_desc'];
-                    $company_name = $row['name'];
-
-                   
-                    ?>
                     <tr>
-                        <td>
-                            <?php echo $s; ?>
-                        </td>
-                        <td>
-                            <?php echo $company_name; ?>
-                        </td>
-                        <td><a href="<?php echo $file_path; ?>" class="btn" download>Download</a></td>
-                        <!--<td><a href="companyprofile.php?id='.$row["sno"].'" style="color:blue;">ViewMore</a></td>-->
-                        <!--  <td><a href="check1.php?sno=<?php echo $row['sno']; ?>" style="color: blue;">View More</a></td>-->
+                        <td>1</td>
+                        <td>EdTex</td>
+                        <td><a href="Edtex.pdf" class="btn btn-primary">Download</a></td>
                     </tr>
-                    <?php
-                }
-
-            } 
-            else 
-            {
-                ?>
                     <tr>
-                        <td colspan="4">No files uploaded yet.</td>
+                        <td>2</td>
+                        <td>FinMarket</td>
+                        <td><a href="uploads/Finmkt.pdf" class="btn btn-primary">Download</a></td>
                     </tr>
-                    <?php
-            }
-            ?>
+                    <tr>
+                        <td>3</td>
+                        <td>Gridlex</td>
+                        <td><a href="uploads/Gridlex.pdf" class="btn btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>HallMark Global Technologies</td>
+                        <td><a href="uploads/Hallmark Global Technologies.pdf" class="btn btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Hexacluster</td>
+                        <td><a href="uploads/HEXACLUSTER.pdf" class="btn btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>HugoSave</td>
+                        <td><a href="uploads/Hugosave.pdf" class="btn btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>JSW</td>
+                        <td><a href="uploads/JSW.pdf" class="btn btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Jarus Technologies</td>
+                        <td><a href="uploads/Jarus_Technologies (1).pdf" class="btn btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Layer0x</td>
+                        <td><a href="uploads/Layer0x.pdf" class="btn btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Medha Servo</td>
+                        <td><a href="uploads/MedhaServo.pdf" class="btn btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>RadhaTMT</td>
+                        <td><a href="uploads/RadhaTMT.pdf" class="btn btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Nav Tech Electronics</td>
+                        <td><a href="uploads/NavTech_Electronics.pdf" class="btn btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>VitWit</td>
+                        <td><a href="uploads/VitWit.pdf" class="btn btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>White Carrot</td>
+                        <td><a href="uploads/WhiteCarrot.pdf" class="btn btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Vassar Labs</td>
+                        <td><a href="uploads/Vassar Labs.pdf" class="btn btn-primary">Download</a></td>
+                    </tr>
                 </tbody>
             </table>
+
             <br><br><br><br><br>
         </center>
 
     </div>
-    <div class="cursor"></div>
-    <script>
 
-        const cursor = document.querySelector('.cursor');
-
-        document.addEventListener('mousemove', e => {
-            cursor.setAttribute("style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;")
-        })
-
-        document.addEventListener('click', () => {
-            cursor.classList.add("expand");
-
-            setTimeout(() => {
-                cursor.classList.remove("expand");
-            }, 500)
-        })
-    </script>
 </body>
 
 </html>
