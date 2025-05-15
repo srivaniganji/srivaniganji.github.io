@@ -49,26 +49,26 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="navbar-text" href="main.php">HOME<span class="sr-only">(current)</span></a>
+                    <a class="navbar-text" href="index.html">HOME<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-text" href="userabout.php">ABOUT</a>
+                    <a class="navbar-text" href="about.html">ABOUT</a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-text" href="downloadpdf1.php">COMPANIES</a>
+                    <a class="navbar-text" href="companies.html">COMPANIES</a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-text" href="view.php">PLACED STUDENTS</a>
+                    <a class="navbar-text" href="placed.html">PLACED STUDENTS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-text" href="placed.php">PLACED?</a>
+                    <a class="navbar-text" href="placed.html">PLACED?</a>
                 </li>
                 <li class="nav-item">
                     <a class="navbar-text" href="#Contact">CONTACT</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0 ml-auto">
-                <button class="btn" type="submit"><a href="logout.php"
+                <button class="btn" type="submit"><a href="login.html"
                         style="text-decoration: none;">LOGOUT</a></button>
             </form>
         </div>
@@ -81,54 +81,105 @@
     <!-- <input type="text" id="searchInput" placeholder="Enter Student Name" onkeyup="searchStudent()" class="student_name">
     <button onclick="clearSearch()" class="btn">Clear Search</button>
     <br><br> -->
-    <table id="example" class="table example">
-        <!-- id="studentTable" -->
-        <thead>
-            <tr>
-                <th>SNO</th>
-                <th>ID</th>
-                <th>Student Name</th>
-                <th>Department</th>
-                <th>Year of Passing</th>
-                <th>Company</th>
-                <th>CTC</th>
-                <th>Profile</th>
-            </tr>
-        </thead>
+    <h2 style="text-align:center; color: #7b0000;">Placed Students List</h2>
 
-        <?php
-        //sssession_start();
-                
-        include "db_conn.php";
+<table id="example" class="display" style="width:100%; border-collapse: collapse; margin: auto;">
+  <thead style="background-color: #7b0000; color: white;">
+    <tr>
+      <th>SNO</th>
+      <th>ID</th>
+      <th>Student Name</th>
+      <th>Department</th>
+      <th>Year of Passing</th>
+      <th>Company</th>
+      <th>CTC</th>
+      <th>Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>B191001</td>
+      <td>Name ABC</td>
+      <td>CSE</td>
+      <td>2025</td>
+      <td>TCS</td>
+      <td>3.6 LPA</td>
+      <td><a href="profiles/" target="_blank">ViewMore</a></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>B191002</td>
+      <td>Name DEF</td>
+      <td>CSE</td>
+      <td>2025</td>
+      <td>Infosys</td>
+      <td>4.0 LPA</td>
+      <td><a href="profiles/" target="_blank">ViewMore</a></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>B191003</td>
+      <td>Name GHI</td>
+      <td>CSE</td>
+      <td>2025</td>
+      <td>Capgemini</td>
+      <td>3.8 LPA</td>
+      <td><a href="profiles/" target="_blank">ViewMore</a></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>B191004</td>
+      <td>Name JKL</td>
+      <td>CSE</td>
+      <td>2025</td>
+      <td>Wipro</td>
+      <td>3.5 LPA</td>
+      <td><a href="profiles/" target="_blank">ViewMore</a></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>B191005</td>
+      <td>Name MNO</td>
+      <td>CSE</td>
+      <td>2025</td>
+      <td>IBM</td>
+      <td>5.0 LPA</td>
+      <td><a href="profiles/" target="_blank">ViewMore</a></td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>B191006</td>
+        <td>Name PQR</td>
+        <td>CSE</td>
+        <td>2025</td>
+        <td>Capgemini</td>
+        <td>3.8 LPA</td>
+        <td><a href="profiles/" target="_blank">ViewMore</a></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>B191007</td>
+        <td>Name STU</td>
+        <td>CSE</td>
+        <td>2025</td>
+        <td>Wipro</td>
+        <td>3.5 LPA</td>
+        <td><a href="profiles/" target="_blank">ViewMore</a></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>B191008</td>
+        <td>Name VWX</td>
+        <td>CSE</td>
+        <td>2025</td>
+        <td>IBM</td>
+        <td>5.0 LPA</td>
+        <td><a href="profiles/" target="_blank">ViewMore</a></td>
+      </tr>
+  </tbody>
+</table>
 
-               // $sql = "SELECT id,sid,name,dept,year,company,ctc FROM registration";
-               $sql = "SELECT id, sid, name, dept, year, company, ctc FROM registration ORDER BY sid DESC";
-                $result=$conn->query($sql);
-                if($result->num_rows > 0)
-                {
-                   $s=0;
-                    while($row = $result->fetch_assoc())
-                    {
-                        $s++;
-                        echo "<tr>";
-                        echo "<td>".$s."</td><td>".$row["sid"]."</td><td>".$row["name"]."</td><td>".
-                        $row["dept"]."</td><td>".$row["year"]."</td><td>".$row["company"]."</td><td>".
-                        $row["ctc"]."</td>";
-                        echo '<td><a href="profile.php?id='.$row["id"].'" style="color:blue;">ViewMore</a></td>';
-                        echo "</tr>";
-                    } 
-                        echo "</table>";
-                }
-                else
-                {
-                    echo "No data Found in Database";
-                }
-                $conn->close();
-            ?>
-        <tbody>
-            <!-- Student data will be inserted here -->
-        </tbody>
-    </table>
     <style>
         /* Add your CSS styles here */
 
@@ -332,102 +383,12 @@
             /* cursor: none; */
             /* background: rgb(27, 27, 27); */
         }
-
-        .cursor {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(22, 211, 63, 0.822);
-            border-radius: 100%;
-            position: absolute;
-            transition-duration: 200ms;
-            transition-timing-function: ease-out;
-            animation: cursorAnim .5s infinite alternate;
-            pointer-events: visible;
-            z-index: 9999;
-        }
-
-        .cursor::after {
-            content: "";
-            width: 20px;
-            height: 20px;
-            position: absolute;
-            border: 20px solid rgb(64, 13, 80);
-            border-radius: 50%;
-            opacity: .5;
-            top: 0px;
-            left: 0px;
-
-            animation: cursorAnim2 .5s infinite alternate;
-        }
-
-        @keyframes cursorAnim {
-            from {
-                transform: scale(1);
-            }
-
-            to {
-                transform: scale(.7);
-            }
-        }
-
-        @keyframes cursorAnim2 {
-            from {
-                transform: scale(1);
-            }
-
-            to {
-                transform: scale(.4);
-            }
-        }
-
-        @keyframes cursorAnim3 {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(3);
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 0;
-            }
-        }
-
-        .expand {
-            animation: cursorAnim3 .5s forwards;
-            border: 1px solid red;
-        }
     </style>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-
-        $(document).ready(function () {
-            $('#example').DataTable();
-        });
-
-    </script>
-    <div class="cursor"></div>
-    <script>
-
-        const cursor = document.querySelector('.cursor');
-
-        document.addEventListener('mousemove', e => {
-            cursor.setAttribute("style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;")
-        })
-
-        document.addEventListener('click', () => {
-            cursor.classList.add("expand");
-
-            setTimeout(() => {
-                cursor.classList.remove("expand");
-            }, 500)
-        })
-    </script>
+    
 </body>
 
 </html>
